@@ -161,7 +161,7 @@ class QRCodeDecode(APIView):
         """
         try:
             # Generate a QR Code.
-            return Response(open("{0}/templates/core_qrcode_app/user/capture.html".format(Path(Path(os.path.dirname(os.path.realpath(__file__))).parent).parent), "r").read(), content_type="text/html", status=status.HTTP_200_OK)
+            return Response(open("{0}/static/core_qrcode_app/user/html/capture.html".format(Path(os.path.dirname(os.path.realpath(__file__))).parent), "r").read(), content_type="text/html", status=status.HTTP_200_OK)
         except Exception as api_exception:
             content = {'message': str(api_exception)}
             return Response(content, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
