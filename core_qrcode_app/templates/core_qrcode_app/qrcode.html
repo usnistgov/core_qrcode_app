@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<div>
+  <div class="row center-align">
+    <div class="col s12"><video id="video" width="70%" height="50%" autoplay></video></div>
+  </div>
+  <!-- <br/> -->
+  <div class="row">
+    <!-- <div class="col s12 center-align"><a class="waves-effect waves-light large" id="snap">Recognize</a></div> -->
+    <div class="col s12 center-align"><a class="btn-floating btn-large waves-effect waves-light brown" id="snap"><i class="material-icons">camera</i></a></div>
+  </div>
+  <!-- <img id="img"></img> -->
+  <canvas id="canvas" width="320" height="240"></canvas>
+  <!-- Modal Structure -->
+  <div id="data" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="{% static 'core_qrcode_app/js/qrcode.js' %}"></script>
+<link rel="stylesheet" href="{% static 'core_qrcode_app/css/qrcode.css' %}">
