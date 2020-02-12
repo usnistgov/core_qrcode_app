@@ -17,7 +17,7 @@ urlpatterns = [
         qrcode_views.QRCodeGetCode.as_view(),
         name='core_qrcode_app_rest_get_code'),
 
-    re_path(r'^encode/$',
+    re_path(r'^decode/$',
         qrcode_views.QRCodeDecode.as_view(),
         name='core_qrcode_app_rest_decode'),
 ]

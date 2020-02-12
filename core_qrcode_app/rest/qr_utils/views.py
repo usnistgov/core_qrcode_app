@@ -4,7 +4,7 @@ from django.utils.decorators import method_decorator
 from rest_framework import status
 from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
+from rest_framework.response import Response, HttpResponse
 from rest_framework.views import APIView
 
 from django.views.decorators.csrf import csrf_exempt
@@ -53,7 +53,7 @@ class QRCodeGenCode(APIView):
             buffer = io.BytesIO()
             code.png(buffer, scale=3)
 
-            return Response(buffer.getvalue(), content_type="image/png", status=status.HTTP_200_OK)
+            return HttpResponse(buffer.getvalue(), content_type="image/png")
         except Exception as api_exception:
             content = {'message': str(api_exception)}
             return Response(content, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -90,7 +90,7 @@ class QRCodeEncode(APIView):
             qr_code = "http://127.0.0.1:8000/core_qrcode_app/gen_code?record={0}".format(record)
             details = "Fe0-1 Arc-melted Homogenized 1250 C; 48 h;FC Annealed 800 C, 168h, WQ Lass 10-9-18"
             body = '<html><head></head><body><div><img src="{0}"/><strong style="text-align: center;"><p style="text-align: left; margin-left: 1%; width: 160px;">{1}</p></strong></div></body></html>'.format(qr_code, details)
-            return Response(body, content_type="text/html", status=status.HTTP_200_OK)
+            return HttpResponse(body, content_type="text/html")#, status=status.HTTP_200_OK)
         except Exception as api_exception:
             content = {'message': str(api_exception)}
             return Response(content, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -139,7 +139,7 @@ class QRCodeDecode(APIView):
     """
 
     @csrf_exempt
-    def post(self, request):
+    def get(self, request):
         """ Detect the url encoded from a Camera capture.
 
         Examples:
