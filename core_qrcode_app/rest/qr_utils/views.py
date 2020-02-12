@@ -1,14 +1,17 @@
 """ Views for the RandR terms REST API
 """
 from django.utils.decorators import method_decorator
-from rest_framework import status
-from rest_framework.exceptions import ValidationError
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response, HttpResponse
-from rest_framework.views import APIView
+from django.http import HttpResponse
 
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import get_object_or_404, render, redirect
+
+from rest_framework import status
+from rest_framework.exceptions import ValidationError
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 import pyqrcode
 import io
 import pyzbar.pyzbar as pyzbar
