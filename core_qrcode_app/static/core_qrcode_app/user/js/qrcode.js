@@ -27,7 +27,7 @@ var defer_load_qrcode = function(){
               var record_id = target.attr('id');
 
               var url = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
-              document.getElementById('qrcode-image').src='http://127.0.0.1:8000/core_qrcode_app/gen_code?record='+url+'/data?id='+record_id;
+              document.getElementById('qrcode-image').src='http://127.0.0.1:8000/core_qrcode_app/rest/gen_code?record='+url+'/data?id='+record_id;
               document.getElementById('qrcode-details').href=url+'/data?id='+record_id;
               document.getElementById('qrcode-details').target="_blank";
 
