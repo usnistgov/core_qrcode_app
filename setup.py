@@ -22,7 +22,7 @@ chdir(normpath(join(abspath(__file__), pardir)))
 
 setup(
     name="core_qrcode_app",
-    version="1.0.0-alpha2",
+    version="1.7.0",
     description="QR Code for core project",
     long_description=long_desc,
     author="Faical Yannick P. Congo",
